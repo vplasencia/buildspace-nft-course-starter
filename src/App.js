@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./styles/output.css";
+import "./styles/App.css";
 import twitterLogo from "./assets/twitter-logo.svg";
 
 import { ethers } from "ethers";
 
 import myEpicNft from "./utils/MyEpicNFT.json";
 
-const TWITTER_HANDLE = "_buildspace";
+const TWITTER_HANDLE = "ViviPlasenciaC";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const CONTRACT_ADDRESS = "0x170F5FFEB11F56F35505C54C55233040C54227C8";
@@ -148,7 +149,7 @@ const App = () => {
   const renderNotConnectedContainer = () => (
     <button
       onClick={connectWallet}
-      className="cta-button connect-wallet-button"
+      className="text-white font-semibold px-5 py-3 bg-gradient-to-r from-indigo-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 rounded-md"
     >
       Connect to Wallet
     </button>
@@ -162,35 +163,42 @@ const App = () => {
    * Added a conditional render! We don't want to show Connect to Wallet if we're already conencted :).
    */
   return (
-    <div className="App">
-      <div className="container">
-        <div className="header-container">
-          <h1 className="text-3xl font-bold underline">Hello world!</h1>
-          <p className="header gradient-text">My NFT Collection</p>
-          <p className="sub-text">
+    <div className="flex flex-col h-screen px-2 bg-gray-900">
+      <header className="flex place-content-center mt-10">
+        <h1 className="text-5xl text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500 font-extrabold">
+          My NFT Collection
+        </h1>
+      </header>
+      <div className="mb-auto">
+        <div className="flex place-content-center mt-5">
+          <p className="text-2xl text-white text-center">
             Each unique. Each beautiful. Discover your NFT today.
           </p>
+        </div>
+        <div className="flex place-content-center mt-5">
           {currentAccount === "" ? (
             renderNotConnectedContainer()
           ) : (
             <button
               onClick={askContractToMintNft}
-              className="cta-button connect-wallet-button"
+              className="text-white font-semibold px-5 py-3 bg-gradient-to-r from-indigo-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 rounded-md"
             >
               Mint NFT
             </button>
           )}
         </div>
-        <div className="footer-container">
-          <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
-          <a
-            className="footer-text"
-            href={TWITTER_LINK}
-            target="_blank"
-            rel="noreferrer"
-          >{`built on @${TWITTER_HANDLE}`}</a>
-        </div>
       </div>
+      <footer className="my-5">
+        <a
+          className="flex items-center justify-center text-white underline hover:no-underline"
+          href={TWITTER_LINK}
+          target="_blank"
+          rel="noreferrer noopener nofollow"
+        >
+          <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
+          <span>{`@${TWITTER_HANDLE}`}</span>
+        </a>
+      </footer>
     </div>
   );
 };
