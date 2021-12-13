@@ -406,6 +406,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .gap-5 {
   gap: 1.25rem;
 }
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .rounded-md {
   border-radius: 0.375rem;
 }
