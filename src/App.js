@@ -10,6 +10,9 @@ import myEpicNft from "./utils/MyEpicNFT.json";
 const TWITTER_HANDLE = "ViviPlasenciaC";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
+const OPENSEA_LINK =
+  "https://testnets.opensea.io/collection/squarenft-ax0kwjubqi";
+
 const CONTRACT_ADDRESS = "0x170F5FFEB11F56F35505C54C55233040C54227C8";
 
 const App = () => {
@@ -175,18 +178,38 @@ const App = () => {
             Each unique. Each beautiful. Discover your NFT today.
           </p>
         </div>
-        <div className="flex place-content-center mt-5">
-          {currentAccount === "" ? (
-            renderNotConnectedContainer()
-          ) : (
-            <button
-              onClick={askContractToMintNft}
+        <div className="flex  items-center justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
+            <a
+              href={OPENSEA_LINK}
+              target="_blank"
+              rel="noreferrer noopener nofollow"
               className="text-white font-semibold px-5 py-3 bg-gradient-to-r from-indigo-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 rounded-md"
             >
-              Mint NFT
-            </button>
-          )}
+              🌊 View Collection on OpenSea
+            </a>
+            {currentAccount === "" ? (
+              renderNotConnectedContainer()
+            ) : (
+              <button
+                onClick={askContractToMintNft}
+                className="text-white font-semibold px-5 py-3 bg-gradient-to-r from-indigo-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 rounded-md"
+              >
+                Mint NFT
+              </button>
+            )}
+          </div>
         </div>
+        {/* <div className="flex place-content-center mt-10">
+          <a
+            href={OPENSEA_LINK}
+            target="_blank"
+            rel="noreferrer noopener nofollow"
+            className="text-white font-semibold px-5 py-3 bg-gradient-to-r from-indigo-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 rounded-md"
+          >
+            🌊 View Collection on OpenSea
+          </a>
+        </div> */}
       </div>
       <footer className="my-5">
         <a
