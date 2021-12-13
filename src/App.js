@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./styles/App.css";
+import "./styles/output.css";
 import twitterLogo from "./assets/twitter-logo.svg";
 
 import { ethers } from "ethers";
@@ -165,6 +165,7 @@ const App = () => {
     <div className="App">
       <div className="container">
         <div className="header-container">
+          <h1 className="text-3xl font-bold underline">Hello world!</h1>
           <p className="header gradient-text">My NFT Collection</p>
           <p className="sub-text">
             Each unique. Each beautiful. Discover your NFT today.
